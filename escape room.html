@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESCAPE ROOM</title>
+    <!-- Incluir Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Aptos:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Aptos', sans-serif; /* Usar Aptos como fuente */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #000; /* Fondo negro base */
+            background-image: 
+                linear-gradient(45deg, #b34d4dbd 25%, transparent 25%, transparent 50%, #b34d4dbd 50%, #b34d4dbd 75%, transparent 75%, transparent 100%),
+                linear-gradient(135deg, #b34d4dbd 25%, transparent 25%, transparent 50%, #b34d4dbd 50%, #b34d4dbd 75%, transparent 75%, transparent 100%);
+            background-size: 80px 80px; /* Tamaño de los cuadraditos */
+            color: white; /* Cambiar color de texto a blanco */
+        }
+        .contenido {
+            background-color: rgba(0, 0, 0, 0.7); /* Fondo semi-transparente */
+            padding: 20px;
+            border-radius: 10px; /* Esquinas redondeadas */
+            text-align: center; /* Centrar texto */
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.2); /* Sombra suave */
+        }
+        input {
+            padding: 10px;
+            font-size: 16px;
+            margin: 10px 0;
+            background-color: rgba(255, 255, 255, 0.8); /* Fondo claro para el input */
+            border: none;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: rgba(255, 255, 255, 0.8); /* Fondo claro para el botón */
+            border: none;
+            border-radius: 5px;
+        }
+        #resultado {
+            font-size: 15px;
+            color: white; /* Texto del resultado en blanco */
+            margin-top: 15px;
+            padding: 10px;
+            border: px solid white; /* Borde blanco para el recuadro */
+            border-radius: 5px; /* Esquinas redondeadas */
+            background-color: rgba(0, 0, 0, 0.6); /* Fondo semi-transparente para el resultado */
+            width: 300px; /* Ancho del recuadro */
+            text-align: center; /* Centrar texto */
+            display: none; /* Ocultar inicialmente */
+        }
+        /* Clase personalizada para el subrayado de color */
+        .subrayado-color {
+            text-decoration: underline;
+            text-decoration-color: rgb(255, 255, 255); /* Cambia el color aquí */
+            color: white; /* Cambiar color del subrayado a blanco */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="contenido">
+        <h1>ESCAPE ROOM</h1>
+        <h2>Prueba 2</h2>
+        <p>¿Qué escondían los números?</p>
+        <input type="text" id="palabra" placeholder="Escribe la palabra...">
+        <button onclick="verificarPalabra()">Enviar</button>
+        <p id="resultado"></p>
+    </div>
+
+    <script>
+        function verificarPalabra() {
+            const palabraIngresada = document.getElementById('palabra').value.toUpperCase();
+            const palabraCorrectaSinTilde = "BOTELLIN";  // La palabra sin tilde
+            const palabraCorrectaConTilde = "BOLLETÍN";  // La palabra con tilde
+            const numeroSecreto = "0309";  // El número que se muestra al acertar
+
+            // Comprobar si la palabra ingresada es correcta, sin importar la capitalización
+            if (palabraIngresada === palabraCorrectaSinTilde || palabraIngresada === palabraCorrectaConTilde) {
+                document.getElementById('resultado').innerHTML = `¡Correcto! El número secreto es <span class="subrayado-color">${numeroSecreto}</span>.`;
+            } else {
+                document.getElementById('resultado').innerText = "Palabra incorrecta, ¡inténtalo de nuevo!";
+            }
+            // Mostrar el recuadro del resultado
+            document.getElementById('resultado').style.display = 'block';
+        }
+    </script>
+
+</body>
+</html>
