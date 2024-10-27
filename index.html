@@ -77,13 +77,12 @@
 
     <script>
         function verificarPalabra() {
-            const palabraIngresada = document.getElementById('palabra').value.toUpperCase();
-            const palabraCorrectaSinTilde = "BOTELLIN";  // La palabra sin tilde
-            const palabraCorrectaConTilde = "BOLLETÍN";  // La palabra con tilde
+            const palabraIngresada = document.getElementById('palabra').value.toLowerCase(); // Convertir a minúsculas
+            const palabraCorrecta = "botellin";  // La palabra sin tilde y en minúsculas
             const numeroSecreto = "0309";  // El número que se muestra al acertar
 
-            // Comprobar si la palabra ingresada es correcta, sin importar la capitalización
-            if (palabraIngresada === palabraCorrectaSinTilde || palabraIngresada === palabraCorrectaConTilde) {
+            // Comprobar si la palabra ingresada es correcta
+            if (palabraIngresada === palabraCorrecta || palabraIngresada === "botellín") {
                 document.getElementById('resultado').innerHTML = `¡Correcto! El número secreto es <span class="subrayado-color">${numeroSecreto}</span>.`;
             } else {
                 document.getElementById('resultado').innerText = "Palabra incorrecta, ¡inténtalo de nuevo!";
