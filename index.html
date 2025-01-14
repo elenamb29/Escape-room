@@ -76,20 +76,23 @@
     </div>
 
     <script>
-        function verificarPalabra() {
-            const palabraIngresada = document.getElementById('palabra').value.toLowerCase(); // Convertir a minúsculas
-            const palabraCorrecta = "botellin";  // La palabra sin tilde y en minúsculas
-            const numeroSecreto = "0309";  // El número que se muestra al acertar
+     function verificarPalabra() {
+        const palabraIngresada = document.getElementById('palabra').value.toLowerCase(); // Convertir a minúsculas
+        const palabrasValidas = [
+            "botellin", "botellín", "botella", "cerveza"
+        ]; // Lista de palabras válidas en minúsculas
 
-            // Comprobar si la palabra ingresada es correcta
-            if (palabraIngresada === palabraCorrecta || palabraIngresada === "botellín") {
-                document.getElementById('resultado').innerHTML = `¡Correcto! El número secreto es <span class="subrayado-color">${numeroSecreto}</span>.`;
-            } else {
-                document.getElementById('resultado').innerText = "Palabra incorrecta, ¡inténtalo de nuevo!";
-            }
-            // Mostrar el recuadro del resultado
-            document.getElementById('resultado').style.display = 'block';
+        const numeroSecreto = "309"; // Número secreto para respuesta correcta
+
+        // Comprobar si la palabra ingresada está en el arreglo de palabras válidas
+        if (palabrasValidas.includes(palabraIngresada)) {
+            document.getElementById('resultado').innerHTML = `¡Correcto! El número secreto es <span class="subrayado-color">${numeroSecreto}</span>.`;
+        } else {
+            document.getElementById('resultado').innerText = "Palabra incorrecta, ¡inténtalo de nuevo!";
         }
+        // Mostrar el recuadro del resultado
+        document.getElementById('resultado').style.display = 'block';
+    }
     </script>
 
 </body>
